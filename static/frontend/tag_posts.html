@@ -1,0 +1,40 @@
+<!doctype html>
+{% load static %}
+{% load cloudinary %}
+{{ post_form.media }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Posts with Tag: #{{ tag.name }} - DjangoGramm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer="defer" src="bundle.js"></script>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center">Posts with Tag: #{{ tag.name }}</h2>
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="mb-4">
+                        <h3>{{ post.caption }}</h3>
+                        <p>Created at: {{ post.created_at }}</p>
+                        {% for image in post.images.all %}
+                            <img src="{{ image.image.url }}" alt="Post Image" class="img-fluid mb-3" style="max-width: 200px; max-height: 200px;">
+                        {% endfor %}
+                        <p>Posted by: <a href="{% url 'gramm:profile' user_id=post.user.id %}">{{ post.user.full_name }}</a></p>
+                        <a href="{% url 'gramm:like_post' post_id=post.id %}" class="btn btn-outline-primary">Like</a>
+                        <p class="mt-2">Likes: {{ post.likes.count }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No posts available with this tag.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'frontend/src/pages/tags_post.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

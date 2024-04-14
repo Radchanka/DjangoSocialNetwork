@@ -1,0 +1,1 @@
+(self.webpackChunktask_13_add_extended_functionality_to_djangogramm_application=self.webpackChunktask_13_add_extended_functionality_to_djangogramm_application||[]).push([[659],{659:()=>{$(document).ready((function(){console.log("Page with posts by tag loaded")}))}}]);
