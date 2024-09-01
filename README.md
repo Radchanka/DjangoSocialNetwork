@@ -20,7 +20,7 @@ Welcome to our photo-sharing social network! This web application allows users t
 
 ## Installation and Setup 🛠️
 
-1. Clone the repository: `git clone https://github.com/your_username/your_project.git`
+1. Clone the repository: `git clone https://github.com/Radchanka/DjangoSocialNetwork.git`
 2. Create a virtual environment: `python -m venv venv`
 3. Install dependencies: `pip install -r requirements.txt`
 4. Apply migrations: `python manage.py migrate`
